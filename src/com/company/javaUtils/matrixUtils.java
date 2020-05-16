@@ -64,8 +64,6 @@ public class matrixUtils {
         }
     }
 
-<<<<<<< HEAD
-=======
     public static void randomBoolFill(char[][] matr) {
         Random randNum = new Random();
         for (int i = 0; i < matr.length; i++) {
@@ -77,7 +75,6 @@ public class matrixUtils {
         }
     }
 
->>>>>>> testing
     public static void fill0123(int[][] matr) {
         int count = 0;
         for (int i = 0; i < matr.length; i++) {
@@ -88,9 +85,6 @@ public class matrixUtils {
         }
     }
 
-<<<<<<< HEAD
-    public static void numFiller(int[][] matr, int filler) {
-=======
     public static void filler(int[][] matr, int filler) {
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
@@ -100,7 +94,6 @@ public class matrixUtils {
     }
 
     public static void filler(char[][] matr, char filler) {
->>>>>>> testing
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
                 matr[i][j] = filler;
