@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         char[][] matrix = new char[10][10];
         matrixUtils.filler(matrix, '0');
+        matrixUtils.print(matrix);
     }
 }
 /* fin */
