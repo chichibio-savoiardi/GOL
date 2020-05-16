@@ -8,7 +8,7 @@ public class Main {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //todo
+        char[][] matrix = new char[10][10];
     }
 }
 /* fin */

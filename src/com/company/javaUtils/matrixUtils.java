@@ -16,6 +16,26 @@ public class matrixUtils {
         }
     }
 
+    public static void print(char[][] matr) {
+
+        for (int i = 0; i < matr.length; i++) { // Loop through all rows
+            System.out.print("[ ");
+            for (int j = 0; j < matr[i].length; j++) { // Loop through all elements of current row
+                System.out.print(matr[i][j] + " "); }
+            System.out.println("]");
+        }
+    }
+
+    public static void print(double[][] matr) {
+
+        for (int i = 0; i < matr.length; i++) { // Loop through all rows
+            System.out.print("[ ");
+            for (int j = 0; j < matr[i].length; j++) { // Loop through all elements of current row
+                System.out.print(matr[i][j] + " "); }
+            System.out.println("]");
+        }
+    }
+
     public static void printColumn(int[][] matr) { //non usato
         for (int i = 0; i < matr[0].length; i++) {
             System.out.print("[ ");
@@ -31,6 +51,15 @@ public class matrixUtils {
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
                 matr[i][j] = randNum.nextInt(bound);
+            }
+        }
+    }
+
+    public static void randomBoolFill(int[][] matr) {
+        Random randNum = new Random();
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[i].length; j++) {
+                matr[i][j] = randNum.nextInt(1);
             }
         }
     }
