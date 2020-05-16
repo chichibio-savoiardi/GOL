@@ -26,6 +26,14 @@ public class arrayUtils {
         System.out.println("]");
     }
 
+    public static void print(char[] array) {
+        System.out.print("[ ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println("]");
+    }
+
     public static void randomFill(int[] array, int bound) {
         Random randNum = new Random();
         for (int i = 0; i < array.length; i++) {
