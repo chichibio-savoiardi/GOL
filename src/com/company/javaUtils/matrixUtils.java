@@ -36,7 +36,17 @@ public class matrixUtils {
         }
     }
 
-    public static void printColumn(int[][] matr) { //non usato
+    public static void printColumn(int[][] matr) {
+        for (int i = 0; i < matr[0].length; i++) {
+            System.out.print("[ ");
+            for (int j = 0; j < matr.length; j++) {
+                System.out.print(matr[j][i] + " ");
+            }
+            System.out.println("]");
+        }
+    }
+
+    public static void printColumn(char[][] matr) {
         for (int i = 0; i < matr[0].length; i++) {
             System.out.print("[ ");
             for (int j = 0; j < matr.length; j++) {
