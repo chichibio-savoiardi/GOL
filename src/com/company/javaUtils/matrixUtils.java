@@ -107,6 +107,16 @@ public class matrixUtils {
         }
     }
 
+    public static int mulDiag(int[][] mat) {
+        int dp = 1, ds = 1, det;
+        for (int i = 0; i < mat.length; i++) {
+            dp = mat[i][i] * dp;
+            ds = mat[mat.length - 1 - i][i] * ds;
+        }
+        det = dp - ds;
+        return det;
+    }
+
     public static void copy(char[][] matr0, char[][] matr1)
     {
         for (int i = 1; i < 10; i++) {
