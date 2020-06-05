@@ -1,16 +1,12 @@
 package com.company.javaUtils;
 
+import com.company.Main;
+
 import java.util.*;
 import java.lang.*;
 
 public class arrayUtils {
     static Scanner in = new Scanner(System.in);
-
-    public static void numFiller(int[] arr, int filler) {
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = filler;
-        }
-    }
 
     public static void fill0123(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -20,16 +16,16 @@ public class arrayUtils {
 
     public static void print(int[] array) {
         System.out.print("[ ");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int value : array) {
+            System.out.print(value + " ");
         }
         System.out.println("]");
     }
 
     public static void print(char[] array) {
         System.out.print("[ ");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (char c : array) {
+            System.out.print(c + " ");
         }
         System.out.println("]");
     }
@@ -97,9 +93,7 @@ public class arrayUtils {
             shiftR(array2, pos);       // crea un buco dove inserire
             array2[pos] = (int) num;
         }
-        for (int i = 0; i < array.length; i++) {
-            array[i] = array2[i];
-        }
+        System.arraycopy(array2, 0, array, 0, array.length);
     }
 
     public static void shiftR(int[] array, int hole) {
@@ -137,13 +131,13 @@ public class arrayUtils {
         }
         int[] arr2 = new int[max - min + 1];
         for (i = 0; i < arr2.length; i++)
-            arr2[i] = 0; //inizializza a zero gli elementi di C
+            arr2[i] = 0; //inizializza a zero gli elementi di arr2
         for (i = 0; i < arr.length; i++)
-            arr2[(int) (arr[i] - min)]++;  //aumenta il numero di volte che si è incontrato il valore
-        //Ordinamento in base al contenuto dell'array delle frequenze C
-        int k = 0; //indice per l'array A
+            arr2[arr[i] - min]++;  //aumenta il numero di volte che si è incontrato il valore
+        //Ordinamento in base al contenuto dell'array delle frequenze arr2
+        int k = 0; //indice per l'array arr
         for (i = 0; i < arr2.length; i++) {
-            while (arr2[i] > 0) { //scrive C[i] volte il valore (i+min) nell'array arr
+            while (arr2[i] > 0) { //scrive arr2[i] volte il valore (i+min) nell'array arr
                 arr[k] = i + min;
                 k++;
                 arr2[i]--;
@@ -216,10 +210,10 @@ public class arrayUtils {
     }
 
     public static void parPrintVect(int[] ...args) {
-        for (int i = 0; i < args.length; i++) {
+        for (int[] arg : args) {
             System.out.print("[ ");
-            for (int j = 0; j < args[i].length; j++) {
-                System.out.print(args[i][j] + " ");
+            for (int j = 0; j < arg.length; j++) {
+                System.out.print(arg[j] + " ");
             }
             System.out.println("]");
         }
@@ -228,8 +222,8 @@ public class arrayUtils {
     public static void parPrintVectTable(String[] ...args) {
         for (int i = 0; i < args[0].length; i++) {
             System.out.print("[ ");
-            for (int j = 0; j < args.length; j++) {
-                System.out.print(args[j][i] + " | ");
+            for (String[] arg : args) {
+                System.out.print(arg[i] + " | ");
             }
             System.out.println("]");
         }

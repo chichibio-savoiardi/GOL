@@ -39,8 +39,8 @@ public class matrixUtils {
     public static void printColumn(int[][] matr) {
         for (int i = 0; i < matr[0].length; i++) {
             System.out.print("[ ");
-            for (int j = 0; j < matr.length; j++) {
-                System.out.print(matr[j][i] + " ");
+            for (int[] ints : matr) {
+                System.out.print(ints[i] + " ");
             }
             System.out.println("]");
         }
@@ -49,8 +49,8 @@ public class matrixUtils {
     public static void printColumn(char[][] matr) {
         for (int i = 0; i < matr[0].length; i++) {
             System.out.print("[ ");
-            for (int j = 0; j < matr.length; j++) {
-                System.out.print(matr[j][i] + " ");
+            for (char[] chars : matr) {
+                System.out.print(chars[i] + " ");
             }
             System.out.println("]");
         }
@@ -78,7 +78,7 @@ public class matrixUtils {
         Random randNum = new Random();
         for (int i = 0; i < matr.length; i++) {
             for (int j = 0; j < matr[i].length; j++) {
-                if (randNum.nextInt(1) == 1) {
+                if (randNum.nextInt(2) == 1) {
                     matr[i][j] = '#';
                 }
             }
@@ -95,19 +95,32 @@ public class matrixUtils {
         }
     }
 
-    public static void filler(int[][] matr, int filler) {
-        for (int i = 0; i < matr.length; i++) {
-            for (int j = 0; j < matr[i].length; j++) {
-                matr[i][j] = filler;
-            }
+    public static void fill(int[][] matr, int filler) {
+        for (int[] ints : matr) {
+            Arrays.fill(ints, filler);
         }
     }
 
-    public static void filler(char[][] matr, char filler) {
-        for (int i = 0; i < matr.length; i++) {
-            for (int j = 0; j < matr[i].length; j++) {
-                matr[i][j] = filler;
-            }
+    public static void fill(char[][] matr, char filler) {
+        for (char[] chars : matr) {
+            Arrays.fill(chars, filler);
+        }
+    }
+
+    public static int mulDiag(int[][] mat) {
+        int dp = 1, ds = 1, det;
+        for (int i = 0; i < mat.length; i++) {
+            dp = mat[i][i] * dp;
+            ds = mat[mat.length - 1 - i][i] * ds;
+        }
+        det = dp - ds;
+        return det;
+    }
+
+    public static void copy(char[][] matr0, char[][] matr1)
+    {
+        for (int i = 1; i < 10; i++) {
+            System.arraycopy(matr0[i], 1, matr1[i], 1, 9);
         }
     }
 }
