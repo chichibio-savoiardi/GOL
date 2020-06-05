@@ -1,5 +1,7 @@
 package com.company.javaUtils;
 
+import com.company.Main;
+
 import java.util.*;
 import java.lang.*;
 
@@ -129,13 +131,13 @@ public class arrayUtils {
         }
         int[] arr2 = new int[max - min + 1];
         for (i = 0; i < arr2.length; i++)
-            arr2[i] = 0; //inizializza a zero gli elementi di C
+            arr2[i] = 0; //inizializza a zero gli elementi di arr2
         for (i = 0; i < arr.length; i++)
-            arr2[(int) (arr[i] - min)]++;  //aumenta il numero di volte che si è incontrato il valore
-        //Ordinamento in base al contenuto dell'array delle frequenze C
-        int k = 0; //indice per l'array A
+            arr2[arr[i] - min]++;  //aumenta il numero di volte che si è incontrato il valore
+        //Ordinamento in base al contenuto dell'array delle frequenze arr2
+        int k = 0; //indice per l'array arr
         for (i = 0; i < arr2.length; i++) {
-            while (arr2[i] > 0) { //scrive C[i] volte il valore (i+min) nell'array arr
+            while (arr2[i] > 0) { //scrive arr2[i] volte il valore (i+min) nell'array arr
                 arr[k] = i + min;
                 k++;
                 arr2[i]--;

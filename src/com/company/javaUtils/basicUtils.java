@@ -7,8 +7,4 @@ public class basicUtils {
     static Scanner in0 = new Scanner(System.in);
     static Scanner in1 = new Scanner(System.in);
     static Scanner in2 = new Scanner(System.in);
-
-    public static void funx() {
-        //code
-    }
 }

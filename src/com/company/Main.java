@@ -1,3 +1,8 @@
+/*
+ * fatto da Iuri Antico e Emanuele Parinetti
+ * supporto morale da Federico Lattanzi
+ */
+
 package com.company;
 
 import java.util.*;
@@ -24,44 +29,25 @@ public class Main {
             {
                 for (int j = 1; j < 10; j++)
                 {
-                    if (matrix0[i][j] == '#')
-                    {
+                    if (matrix0[i][j] == '#') {
                         check = true;
-                    }
-                    else
-                    {
+                    } else {
                         check = false;
                     }
-                    tatty = funx.conta(i, j, matrix0, check);
-                    switch (tatty)
+                    tatty = conta(i, j, matrix0, check);
+                    switch (tatty)	//in base alle celle vive adiacenti si fa morire o vivere la cella corrente
                     {
-                        case 0:
-                            if (check)
-                            {
-                                funx.rule1(i, j, matrix0);
-                            }
-                            break;
-                        case 1:
                         case 2:
-                            if (check)
-                            {
-                                funx.rule2(i, j, matrix0);
+                            if (check) {
+                                matrix1[i][j] = '#';
                             }
-                            break;
                         case 3:
-                            if (!check)
-                            {
-                                funx.rule4(i, j, matrix0);
-                            }
-                            else
-                            {
-                                funx.rule2(i, j, matrix0);
-                            }
+                            matrix1[i][j] = '#';
                             break;
                         default:
-                            if (check)
+                            if (check == true)
                             {
-                                funx.rule3(i, j, matrix0);
+                                matrix1[i][j] = ' ';
                             }
                             break;
                     }
@@ -71,6 +57,26 @@ public class Main {
             matrixUtils.print(matrix0);
             System.out.println();
         }
+    }
+
+    static int conta(int i1, int j1, char[][] m0, boolean check)
+    {
+        int q = 0;		//contatorte celle piene adiacenti
+        for (int i = i1 - 1; i < i1 + 2; i++)
+        {
+            for (int j = j1 - 1; j < j1 + 2; j++)
+            {
+                if ( m0[i][j] == '#')
+                {
+                    q++;
+                }
+            }
+        }
+        if (check)
+        {
+            q--;
+        }
+        return q;
     }
 }
 /* fin */
